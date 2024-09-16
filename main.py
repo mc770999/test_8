@@ -10,6 +10,7 @@ from service.location_service import convert_to_location_model
 from service.target_service import create_list_targets
 from service.weather_service import convert_to_weather_model
 from service.aircraft_service import convert_to_aircraft_list_model
+from repository.csv_repositori import write_missions_to_csv
 from toolz import pipe
 
 if __name__ == "__main__":
@@ -18,7 +19,7 @@ if __name__ == "__main__":
     d.pilots = convert_to_pilot_list_model(read_json("repository/pilots.json"))
     d.air_crafts = convert_to_aircraft_list_model(read_json("repository/aircrafts.json"))
 
-    print(create_missions(d))
+    write_missions_to_csv(create_missions(d),"repository/all_mission.csv")
 
     # l = read_json("repository/city_data.json")
     # a = read_json("repository/location_api.json")

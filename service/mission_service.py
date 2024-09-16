@@ -17,4 +17,4 @@ def create_missions(data_sorce : Data_Source):
                 missions.append(create_mission(pilot,target,air_craft))
 
 
-    return len(missions)
+    return missions
